@@ -35,7 +35,8 @@ resource "aws_vpc" "my-vpc" {
 }
 
 resource "aws_subnet" "my-subnet" {
-  vpc_id     = vpc-08effe7680d556bd7
+
+  vpc_id     = aws_vpc.my-vpc.id
   cidr_block = "10.0.1.0/24"
 
   tags = {
