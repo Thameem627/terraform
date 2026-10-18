@@ -24,3 +24,21 @@ resource "aws_instance" "testing_ec2" {
     Name = "Terraform-EC2"
   }
 }
+
+resource "aws_vpc" "my-vpc" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "vpc-main"
+  }
+}
+
+resource "aws_subnet" "my-subnet" {
+  vpc_id     = vpc-08effe7680d556bd7
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "Subnet"
+  }
+}
